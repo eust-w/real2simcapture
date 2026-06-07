@@ -1,0 +1,16 @@
+.DS_Store
+*.pyc
+__pycache__/
+.venv/
+venv/
+node_modules/
+dist/
+build/
+.env
+.env.*
+!.env.example
+data/
+outputs/
+artifacts/
+*.zip
+*.tar.gz
