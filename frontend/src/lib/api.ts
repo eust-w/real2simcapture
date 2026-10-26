@@ -268,6 +268,9 @@ export class ApiClient {
       const detail = typeof payload === "object" && payload !== null && "detail" in payload ? payload.detail : payload;
       throw new Error(typeof detail === "string" ? detail : JSON.stringify(detail));
     }
+    if (!contentType.includes("application/json")) {
+      throw new Error("Expected JSON from API. Check VITE_API_BASE_URL or the /api proxy configuration.");
+    }
     return payload as T;
   }
 }

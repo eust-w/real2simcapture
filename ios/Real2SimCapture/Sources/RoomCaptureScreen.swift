@@ -64,12 +64,25 @@ struct RoomCaptureContainer: UIViewRepresentable {
         Coordinator(onRoomCaptured: onRoomCaptured)
     }
 
+    @objc(Real2SimRoomCaptureCoordinator)
     final class Coordinator: NSObject, RoomCaptureViewDelegate, RoomCaptureSessionDelegate {
         var isRunning = false
         private let onRoomCaptured: (CapturedRoom) -> Void
 
         init(onRoomCaptured: @escaping (CapturedRoom) -> Void) {
             self.onRoomCaptured = onRoomCaptured
+        }
+
+        // The SwiftUI callback belongs to a live view and cannot be restored from an archive.
+        required init?(coder: NSCoder) {
+            return nil
+        }
+
+        func encode(with coder: NSCoder) {
+            coder.failWithError(NSError(
+                domain: "Real2SimCapture", code: 1,
+                userInfo: [NSLocalizedDescriptionKey: "Capture coordinators are runtime-only objects"]
+            ))
         }
 
         func captureView(shouldPresent roomDataForProcessing: CapturedRoomData, error: Error?) -> Bool {

@@ -1,8 +1,28 @@
 import { describe, expect, it } from "vitest";
+import { createServer } from "node:http";
+import { once } from "node:events";
 
 import { ApiClient, buildApiBase, groupArtifactsByFolder } from "./api";
 
 describe("api helpers", () => {
+  it("rejects an HTML success response instead of passing it to the workbench", async () => {
+    const server = createServer((_request, response) => {
+      response.writeHead(200, { "Content-Type": "text/html" });
+      response.end("<!doctype html><title>Frontend, not API</title>");
+    });
+    server.listen(0, "127.0.0.1");
+    await once(server, "listening");
+    try {
+      const address = server.address();
+      if (!address || typeof address === "string") throw new Error("No HTTP test port");
+      const client = new ApiClient(`http://127.0.0.1:${address.port}`);
+      await expect(client.projects()).rejects.toThrow("Expected JSON from API");
+    } finally {
+      server.closeAllConnections();
+      await new Promise<void>((resolve, reject) => server.close(error => error ? reject(error) : resolve()));
+    }
+  });
+
   it("uses the current browser host for the default API base", () => {
     const base = buildApiBase("http://127.0.0.1:5173/tasks", undefined);
 

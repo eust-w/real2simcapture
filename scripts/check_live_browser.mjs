@@ -9,12 +9,12 @@ const api = process.env.REAL2SIM_TEST_API || 'http://127.0.0.1:8000';
 const site = process.env.REAL2SIM_TEST_WEB || 'http://127.0.0.1:5175';
 const output = path.resolve('.build/browser');
 await fs.mkdir(output, { recursive: true });
-const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
+const browser = await chromium.launch({ ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : { channel: 'chrome' }), headless: true, args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
 page.setDefaultTimeout(90000);
 page.setDefaultNavigationTimeout(90000);
 const errors = [];
-page.on('pageerror', e => errors.push(e.message));
+page.on('pageerror', e => { errors.push(e.message); console.error('PAGE ERROR:', e.message); });
 async function json(route, data) {
   const response = await fetch(api + route, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
   assert(response.ok, `${route}: ${response.status}`);
@@ -61,6 +61,10 @@ try {
   await page.screenshot({ path: path.join(output, 'mobile-fixture.png') });
   assert.equal(errors.length, 0, errors.join('\n'));
   console.log(JSON.stringify({ passed: true, fixture: true, realDeviceCapture: false, screenshots: output, checks: ['HTTP upload', 'mesh version refresh', 'canvas pixel changes', 'orbit interaction', 'mobile overflow', 'no page errors'] }, null, 2));
+} catch (error) {
+  console.error('Page body:', await page.locator('body').innerText().catch(() => 'unavailable'));
+  await page.screenshot({ path: path.join(output, 'failure.png'), timeout: 10000 }).catch(() => {});
+  throw error;
 } finally {
   await browser.close();
 }

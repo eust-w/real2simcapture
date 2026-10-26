@@ -18,6 +18,8 @@ jobs:
           cache-dependency-path: backend/requirements-lock.txt
       - run: python -m pip install -r backend/requirements-lock.txt
       - run: python -m pip install --no-deps -e backend
+      - name: Install video capture dependency
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - run: python -m pytest backend/tests -q -m 'not external'
       - run: python -m pip install pip-audit
       - run: python -m pip_audit -r backend/requirements-lock.txt --no-deps --disable-pip

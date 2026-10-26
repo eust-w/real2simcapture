@@ -627,8 +627,8 @@ private extension ARGeometrySource {
     func vertex(at index: Int) -> SIMD3<Float> {
         let pointer = buffer.contents()
             .advanced(by: offset + stride * index)
-            .assumingMemoryBound(to: SIMD3<Float>.self)
-        return pointer.pointee
+            .assumingMemoryBound(to: Float.self)
+        return SIMD3<Float>(pointer[0], pointer[1], pointer[2])
     }
 }
 
