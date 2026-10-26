@@ -128,7 +128,7 @@ private struct UploadPanel: View {
             if let message = store.statusMessage {
                 Text(message)
                     .font(.caption)
-                    .foregroundStyle(store.lastError == nil ? .secondary : .red)
+                    .foregroundStyle(store.lastError == nil ? Color.secondary : Color.red)
             }
         }
     }
