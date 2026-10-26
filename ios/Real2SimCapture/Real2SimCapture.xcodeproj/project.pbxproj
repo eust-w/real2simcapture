@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		133B2E6E1A652F6C599BE8F3 /* CaptureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889160E31AE1294D8ACB4678 /* CaptureStore.swift */; };
+		5F1A5882580CD9C378BF452A /* BackendUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69597A1CDC3434479B5C5A5 /* BackendUploader.swift */; };
+		6219423B5E0D77206B6D6817 /* ARSceneCaptureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4D8E45FE82D7999C2D2424 /* ARSceneCaptureScreen.swift */; };
+		742A208262A89FB21D3AA153 /* RoomCaptureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FC7C0579BF27C4F315492D /* RoomCaptureScreen.swift */; };
+		76022494B336FDD87C40D109 /* LiveSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EB815490B43A779739FC6F /* LiveSessionClient.swift */; };
+		80199BAA9F531CA30C2032B1 /* Real2SimCaptureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408779AE76739CFEE6B9EDAB /* Real2SimCaptureApp.swift */; };
+		A88F0E492E00457905B87BD1 /* ZipWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D345320DCCC7A35531117FAF /* ZipWriter.swift */; };
+		B423869CB237E30EB224E211 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE1E9C1E818FF2AFA87FB2 /* ContentView.swift */; };
+		CDC083C2D01D4D27E1EADA6B /* CapturePackageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E68F5DC52396B78D305AFD /* CapturePackageBuilder.swift */; };
+		FB06864CEC36ACFC692204F8 /* ObjectCaptureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287C23BD0F99BF445E0689C /* ObjectCaptureScreen.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0BBE1E9C1E818FF2AFA87FB2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		10EB815490B43A779739FC6F /* LiveSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSessionClient.swift; sourceTree = "<group>"; };
+		1287C23BD0F99BF445E0689C /* ObjectCaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureScreen.swift; sourceTree = "<group>"; };
+		19E68F5DC52396B78D305AFD /* CapturePackageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturePackageBuilder.swift; sourceTree = "<group>"; };
+		408779AE76739CFEE6B9EDAB /* Real2SimCaptureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Real2SimCaptureApp.swift; sourceTree = "<group>"; };
+		58FC7C0579BF27C4F315492D /* RoomCaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCaptureScreen.swift; sourceTree = "<group>"; };
+		8575FEFAE69820974BA40830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		889160E31AE1294D8ACB4678 /* CaptureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureStore.swift; sourceTree = "<group>"; };
+		9D4D8E45FE82D7999C2D2424 /* ARSceneCaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneCaptureScreen.swift; sourceTree = "<group>"; };
+		A69597A1CDC3434479B5C5A5 /* BackendUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendUploader.swift; sourceTree = "<group>"; };
+		A86FC65A4B49E6A35180FBF5 /* Real2SimCapture.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Real2SimCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D345320DCCC7A35531117FAF /* ZipWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipWriter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2430133E74429182477F6F0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A86FC65A4B49E6A35180FBF5 /* Real2SimCapture.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9883A88A5C876BBE6802DE77 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9D4D8E45FE82D7999C2D2424 /* ARSceneCaptureScreen.swift */,
+				A69597A1CDC3434479B5C5A5 /* BackendUploader.swift */,
+				19E68F5DC52396B78D305AFD /* CapturePackageBuilder.swift */,
+				889160E31AE1294D8ACB4678 /* CaptureStore.swift */,
+				0BBE1E9C1E818FF2AFA87FB2 /* ContentView.swift */,
+				8575FEFAE69820974BA40830 /* Info.plist */,
+				10EB815490B43A779739FC6F /* LiveSessionClient.swift */,
+				1287C23BD0F99BF445E0689C /* ObjectCaptureScreen.swift */,
+				408779AE76739CFEE6B9EDAB /* Real2SimCaptureApp.swift */,
+				58FC7C0579BF27C4F315492D /* RoomCaptureScreen.swift */,
+				D345320DCCC7A35531117FAF /* ZipWriter.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EEB48502A8F16B586A1AC196 = {
+			isa = PBXGroup;
+			children = (
+				9883A88A5C876BBE6802DE77 /* Sources */,
+				2430133E74429182477F6F0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28B519B1B10DDBD98DB65B06 /* Real2SimCapture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E99513AD5260AABCDAA3449E /* Build configuration list for PBXNativeTarget "Real2SimCapture" */;
+			buildPhases = (
+				F3616A84BF1ADC1344F2D906 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Real2SimCapture;
+			packageProductDependencies = (
+			);
+			productName = Real2SimCapture;
+			productReference = A86FC65A4B49E6A35180FBF5 /* Real2SimCapture.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		368B2070D28DDFF27D83E629 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 6A7316F05955180B1784230F /* Build configuration list for PBXProject "Real2SimCapture" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = EEB48502A8F16B586A1AC196;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2430133E74429182477F6F0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28B519B1B10DDBD98DB65B06 /* Real2SimCapture */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3616A84BF1ADC1344F2D906 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6219423B5E0D77206B6D6817 /* ARSceneCaptureScreen.swift in Sources */,
+				5F1A5882580CD9C378BF452A /* BackendUploader.swift in Sources */,
+				CDC083C2D01D4D27E1EADA6B /* CapturePackageBuilder.swift in Sources */,
+				133B2E6E1A652F6C599BE8F3 /* CaptureStore.swift in Sources */,
+				B423869CB237E30EB224E211 /* ContentView.swift in Sources */,
+				76022494B336FDD87C40D109 /* LiveSessionClient.swift in Sources */,
+				FB06864CEC36ACFC692204F8 /* ObjectCaptureScreen.swift in Sources */,
+				80199BAA9F531CA30C2032B1 /* Real2SimCaptureApp.swift in Sources */,
+				742A208262A89FB21D3AA153 /* RoomCaptureScreen.swift in Sources */,
+				A88F0E492E00457905B87BD1 /* ZipWriter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4F7A4489D75F79F094011783 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.real2simcapture.capture;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C22752638336A327918FF52B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Release;
+		};
+		ED3A6A2556B37A4EEC36B5F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.real2simcapture.capture;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FD7B408ABC861B311EEE4BC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.10;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A7316F05955180B1784230F /* Build configuration list for PBXProject "Real2SimCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD7B408ABC861B311EEE4BC5 /* Debug */,
+				C22752638336A327918FF52B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E99513AD5260AABCDAA3449E /* Build configuration list for PBXNativeTarget "Real2SimCapture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED3A6A2556B37A4EEC36B5F7 /* Debug */,
+				4F7A4489D75F79F094011783 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 368B2070D28DDFF27D83E629 /* Project object */;
+}

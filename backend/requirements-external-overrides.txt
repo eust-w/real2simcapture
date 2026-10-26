@@ -1,0 +1,5 @@
+# Upstream MoviePy has removed the stale Pillow<12 metadata cap after the
+# latest PyPI release. This pinned source install keeps Genesis + MoviePy
+# compatible with the security-fixed Pillow 12.x line until MoviePy publishes
+# a release with the updated metadata.
+moviepy @ git+https://github.com/Zulko/moviepy.git@7ffa4f00376237137a25fe1c777355c37753e9af

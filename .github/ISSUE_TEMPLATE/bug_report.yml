@@ -1,0 +1,20 @@
+name: Reproducible bug
+description: Report a capture, processing, viewer or export problem.
+body:
+  - type: textarea
+    attributes:
+      label: Environment
+      description: OS, Python/Node, iPhone/iOS, Xcode, simulator versions and commit.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps and expected result
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual result and redacted logs
+      description: No passwords, tokens, private scans, or confidential data.
+    validations:
+      required: true
