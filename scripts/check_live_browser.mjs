@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || path.resolve('frontend/node_modules/playwright'));
 const api = process.env.REAL2SIM_TEST_API || 'http://127.0.0.1:8000';
 const site = process.env.REAL2SIM_TEST_WEB || 'http://127.0.0.1:5175';
 const output = path.resolve('.build/browser');
@@ -39,7 +39,30 @@ try {
   await page.locator('canvas').waitFor();
   await page.waitForTimeout(2500);
   const canvas = page.locator('canvas');
-  await canvas.screenshot({ path: path.join(output, 'mesh-v1.png') });
+  async function checkFraming(file) {
+    const png = await canvas.screenshot({ path: path.join(output, file) });
+    const bounds = await page.evaluate(async base64 => {
+      const img = new Image();
+      img.src = 'data:image/png;base64,' + base64;
+      await img.decode();
+      const probe = document.createElement('canvas');
+      probe.width = img.width; probe.height = img.height;
+      const context = probe.getContext('2d');
+      context.drawImage(img, 0, 0);
+      const { data } = context.getImageData(0, 0, img.width, img.height);
+      let count = 0, minX = img.width, maxX = 0, minY = img.height, maxY = 0;
+      for (let y = 0; y < img.height; y++) for (let x = 0; x < img.width; x++) {
+        const i = (y * img.width + x) * 4;
+        if (data[i] > 60 && data[i] < 225 && Math.abs(data[i] - data[i + 1]) < 2 && Math.abs(data[i] - data[i + 2]) < 2) {
+          count++; minX = Math.min(minX, x); maxX = Math.max(maxX, x); minY = Math.min(minY, y); maxY = Math.max(maxY, y);
+        }
+      }
+      return { count, minX, maxX, minY, maxY, width: img.width, height: img.height };
+    }, png.toString('base64'));
+    assert(bounds.count > bounds.width * bounds.height * 0.01, `Blank geometry: ${JSON.stringify(bounds)}`);
+    assert(bounds.minX > 3 && bounds.maxX < bounds.width - 4 && bounds.minY > 3 && bounds.maxY < bounds.height - 4, `Clipped geometry: ${JSON.stringify(bounds)}`);
+  }
+  await checkFraming('mesh-v1.png');
   await upload(mesh.replace('v 0 0 1', 'v 0 0 2'));
   await page.getByText('Mesh v2', { exact: true }).waitFor();
   await page.waitForTimeout(1500);
@@ -58,9 +81,10 @@ try {
   await page.waitForTimeout(800);
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'Mobile horizontal overflow');
   await page.locator('canvas').scrollIntoViewIfNeeded();
+  await checkFraming('mesh-mobile.png');
   await page.screenshot({ path: path.join(output, 'mobile-fixture.png') });
   assert.equal(errors.length, 0, errors.join('\n'));
-  console.log(JSON.stringify({ passed: true, fixture: true, realDeviceCapture: false, screenshots: output, checks: ['HTTP upload', 'mesh version refresh', 'canvas pixel changes', 'orbit interaction', 'mobile overflow', 'no page errors'] }, null, 2));
+  console.log(JSON.stringify({ passed: true, fixture: true, realDeviceCapture: false, screenshots: output, checks: ['HTTP upload', 'mesh version refresh', 'canvas pixel changes', 'desktop/mobile geometry framing', 'orbit interaction', 'mobile overflow', 'no page errors'] }, null, 2));
 } catch (error) {
   console.error('Page body:', await page.locator('body').innerText().catch(() => 'unavailable'));
   await page.screenshot({ path: path.join(output, 'failure.png'), timeout: 10000 }).catch(() => {});

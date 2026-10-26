@@ -309,7 +309,9 @@ select:disabled {
 
 .preview-pane {
   display: flex;
-  min-height: calc(100vh - 112px);
+  height: min(780px, calc(100vh - 124px));
+  min-height: 480px;
+  align-self: start;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #dbe3ea;
@@ -363,8 +365,19 @@ select:disabled {
 
 .mesh-preview {
   position: relative;
-  min-height: 460px;
+  min-height: 0;
   flex: 1;
+}
+
+.mesh-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 8px;
+  max-width: calc(100% - 24px);
+  background: #ffffff;
+  color: #17384c;
+  font-size: 13px;
 }
 
 .empty-preview,
@@ -604,5 +617,8 @@ select:disabled {
   .empty-preview,
   .preview-loading {
     min-height: 360px;
+  }
+  .preview-pane {
+    height: 480px;
   }
 }
