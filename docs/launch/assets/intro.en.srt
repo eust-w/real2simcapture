@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:09,700
+Introducing real2simcapture, a capture and asset pipeline for robotics developers. This is a project overview, not a physical-device scanning demonstration.
+
+2
+00:00:09,700 --> 00:00:19,567
+The native capture code records images, depth, camera poses and intrinsics. Capture requires compatible hardware; missing depth is never a substitute for LiDAR data.
+
+3
+00:00:19,567 --> 00:00:29,067
+The Live path periodically uploads mesh snapshots reconstructed by ARKit. Sampled frames are retained locally during network backlog. Device latency still requires measurement.
+
+4
+00:00:29,067 --> 00:00:38,900
+The workbench shows capture status, mesh versions and processing tasks. This is an actual empty workbench, with no fabricated scan result.
+
+5
+00:00:38,900 --> 00:00:51,333
+Export code supports MJCF, URDF and USD, with separate visual and collision geometry. Estimated mass and friction are not measurements. Outputs require target-engine acceptance.
+
+6
+00:00:51,333 --> 00:01:02,267
+This is a developer preview. Device signing, continuous capture and engine import await acceptance. Public release follows ownership and license confirmation.

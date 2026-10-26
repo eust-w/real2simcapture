@@ -6,6 +6,10 @@
 
 **当前为开发预览。** 已有原生采集代码、Live 网格传输、Web 三维查看、处理与导出。完整 iPhone 采集到仿真运行仍需硬件验收；测试输入不作为真实扫描演示。
 
+![开发预览介绍片封面，非真机演示](docs/launch/assets/preview-cover.png)
+
+约 62 秒横竖版介绍片、字幕及多平台文案见[视频交付说明](docs/launch/PUBLISHING.zh-CN.md)。实现位于私有仓库的 `codex/open-source-preview` 分支，尚未合入 main 或正式公开。
+
 ## Live 链路
 
 ARKit 在手机上生成场景网格，App 以约两秒间隔尝试上传最新快照，Web 轮询网格版本并显示实际三维几何。更新频率受网络、性能与跟踪状态影响，不是固定实时性保证。

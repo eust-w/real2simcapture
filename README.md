@@ -6,6 +6,10 @@ An iPhone capture and simulation-asset pipeline for robotics developers.
 
 **Developer preview.** The complete phone-to-engine workflow still needs physical-device acceptance. No verified public scan dataset is bundled. Repository publication and license approval are pending.
 
+![Developer-preview project introduction, not device footage](docs/launch/assets/preview-cover.png)
+
+[Introduction video package and production sources](docs/launch/PUBLISHING.zh-CN.md). The introduction uses source excerpts and an actual empty workbench, not fabricated scan results.
+
 ## Capabilities
 
 - Native capture of RGB, LiDAR depth, camera poses, RoomPlan data and ARKit scene meshes.
@@ -20,7 +24,7 @@ ARKit performs on-device scene reconstruction. Mesh uploads are attempted approx
 Use macOS/Linux, Python 3.11+, and Node.js 22+. Physical capture additionally requires a supported LiDAR device, full Xcode and signing.
 
 ```sh
-git clone https://github.com/eust-w/real2simcapture.git
+git clone --branch codex/open-source-preview https://github.com/eust-w/real2simcapture.git
 cd real2simcapture
 python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements-lock.txt
@@ -38,7 +42,7 @@ Start the API and console in separate terminals:
 npm --prefix frontend run dev -- --host 127.0.0.1
 ```
 
-Open `http://localhost:5173`. For phone access, follow [device setup](docs/SETUP.md). The API currently has no application-level authentication; do not expose it directly to the internet.
+The preview currently lives on `codex/open-source-preview` in a private repository, so cloning requires access. Open `http://localhost:5173`. For phone access, follow [device setup](docs/SETUP.md). The API currently has no application-level authentication; do not expose it directly to the internet.
 
 ## Verification Boundaries
 
@@ -46,7 +50,7 @@ Open `http://localhost:5173`. For phone access, follow [device setup](docs/SETUP
 | --- | --- |
 | API and exports | Automated regression tests using explicitly labeled fixtures |
 | Live geometry delivery | Real HTTP upload/download, atomic replacement and version refresh |
-| iOS sources | XcodeGen project; compilation and hardware checks tracked separately |
+| iOS sources | Unsigned physical-device target compiled in macOS CI; signing and hardware checks pending |
 | Phone-to-simulator demonstration | Pending physical-device capture and acceptance footage |
 | Photorealistic live reconstruction | Not provided |
 | External engines, GPU models and paid APIs | Optional; separately installed, no credentials or binaries bundled |

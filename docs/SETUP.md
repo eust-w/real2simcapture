@@ -2,6 +2,8 @@
 
 Use macOS/Linux, Python 3.11+ and Node.js 22+. Install the pinned core environment as shown in [README](../README.md); install optional reconstruction tools separately.
 
+Install FFmpeg for video input and the video regression tests (`brew install ffmpeg` on macOS, or your Linux package manager). Vite development and preview servers proxy `/api` to port 8000. For a separate API host, set `VITE_API_BASE_URL` before starting/building the frontend. HTML responses from a misconfigured proxy are reported as configuration errors.
+
 ## Physical Device
 
 1. Install full Xcode compatible with the Mac and iPhone iOS version. `xcodebuild -version` must report Xcode, not Command Line Tools. XcodeGen alone cannot build an app.
@@ -27,3 +29,17 @@ Set `REAL2MOTRIX_DIR` for a separately installed Real2Motrix checkout, or config
 ## Acceptance Evidence
 
 Record commit, device/iOS, Xcode, workstation, input hashes, scan duration, frame/depth counts, deferred uploads, mesh versions, dimensions against a physical reference, processing duration, engine version and actual result. Keep continuous original footage and disclose accelerated editing. Only a successful physical run supports a phone-to-simulator demonstration claim.
+
+## Browser Regression
+
+The `browser` CI job starts an isolated database, actual API and production Web preview. It uploads explicitly labeled geometric test fixtures over HTTP and verifies version refresh, visible pixels, unclipped geometry, orbit controls, mobile overflow and browser errors. These images must not be used as device footage.
+
+To reproduce locally, use a disposable API data directory, start the Web preview on port 5176 and run from the repository root:
+
+```sh
+frontend/node_modules/.bin/playwright install chromium
+export CHROMIUM_PATH="$(node -p 'require("./frontend/node_modules/playwright").chromium.executablePath()')"
+REAL2SIM_TEST_WEB=http://127.0.0.1:5176 node scripts/check_live_browser.mjs
+```
+
+The script creates test projects and sessions. Do not point it at a production database. Screenshots are stored under `.build/browser` and excluded from Git.
