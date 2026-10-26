@@ -4,11 +4,13 @@
 
 [English](README.md) · [安装与真机操作](docs/SETUP.md) · [当前发布状态](docs/launch/READINESS.zh-CN.md) · [贡献指南](CONTRIBUTING.md)
 
-**当前为开发预览。** 已有原生采集代码、Live 网格传输、Web 三维查看、处理与导出。完整 iPhone 采集到仿真运行仍需硬件验收；测试输入不作为真实扫描演示。
+**Apache-2.0 开源开发预览。** 已有原生采集代码、Live 网格传输、Web 三维查看、处理与导出。完整 iPhone 采集到仿真运行仍需硬件验收；测试输入不作为真实扫描演示，不提供已签名的 iPhone 安装包。
+
+[![Verify](https://github.com/eust-w/real2simcapture/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/eust-w/real2simcapture/actions/workflows/ci.yml)
 
 ![开发预览介绍片封面，非真机演示](docs/launch/assets/preview-cover.png)
 
-约 62 秒横竖版介绍片、字幕及多平台文案见[视频交付说明](docs/launch/PUBLISHING.zh-CN.md)。实现位于私有仓库的 `codex/open-source-preview` 分支，尚未合入 main 或正式公开。
+代码位于公开仓库的 `main` 分支，[版本下载](https://github.com/eust-w/real2simcapture/releases)。开源前制作的约 62 秒介绍片及素材说明见[视频交付说明](docs/launch/PUBLISHING.zh-CN.md)，其中关于“开源筹备”的历史台词不代表当前仓库状态。
 
 ## Live 链路
 
@@ -28,4 +30,4 @@ API 没有应用层认证，仅适合本机或受控网络开发，不应直接�
 
 自动测试覆盖实际代码及 HTTP 路径；程序生成的几何仅是回归夹具。iOS 编译、真机采集和引擎运行分别记录，不互相替代。外部工具不可用时报告失败，不生成虚假结果。未实测前不承诺厘米级精度、秒级重建或生产可用。
 
-详见[贡献指南](CONTRIBUTING.md)、[历史架构](docs/ARCHITECTURE.zh-CN.md)与[第三方说明](THIRD_PARTY.md)。项目公开授权和许可证仍待权利人确认。
+项目原创代码与文档采用 [Apache-2.0](LICENSE)，署名见 [NOTICE](NOTICE)。第三方 SDK、引擎、模型及数据保留各自许可，不随本项目重新授权。详见[贡献指南](CONTRIBUTING.md)、[历史架构](docs/ARCHITECTURE.zh-CN.md)与[第三方说明](THIRD_PARTY.md)。

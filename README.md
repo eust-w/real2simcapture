@@ -2,9 +2,12 @@
 
 An iPhone capture and simulation-asset pipeline for robotics developers.
 
-[中文](README.zh-CN.md) · [Setup](docs/SETUP.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Release status](docs/launch/READINESS.zh-CN.md)
+[中文](README.zh-CN.md) · [Setup](docs/SETUP.md) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Releases](https://github.com/eust-w/real2simcapture/releases)
 
-**Developer preview.** The complete phone-to-engine workflow still needs physical-device acceptance. No verified public scan dataset is bundled. Repository publication and license approval are pending.
+**Apache-2.0 open-source developer preview.** The complete phone-to-engine workflow still needs physical-device acceptance. No verified public scan dataset or signed iPhone app is bundled.
+
+[![Verify](https://github.com/eust-w/real2simcapture/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/eust-w/real2simcapture/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE)
 
 ![Developer-preview project introduction, not device footage](docs/launch/assets/preview-cover.png)
 
@@ -24,7 +27,7 @@ ARKit performs on-device scene reconstruction. Mesh uploads are attempted approx
 Use macOS/Linux, Python 3.11+, and Node.js 22+. Physical capture additionally requires a supported LiDAR device, full Xcode and signing.
 
 ```sh
-git clone --branch codex/open-source-preview https://github.com/eust-w/real2simcapture.git
+git clone https://github.com/eust-w/real2simcapture.git
 cd real2simcapture
 python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements-lock.txt
@@ -42,7 +45,7 @@ Start the API and console in separate terminals:
 npm --prefix frontend run dev -- --host 127.0.0.1
 ```
 
-The preview currently lives on `codex/open-source-preview` in a private repository, so cloning requires access. Open `http://localhost:5173`. For phone access, follow [device setup](docs/SETUP.md). The API currently has no application-level authentication; do not expose it directly to the internet.
+Open `http://localhost:5173`. For phone access, follow [device setup](docs/SETUP.md). The API currently has no application-level authentication; do not expose it directly to the internet.
 
 ## Verification Boundaries
 
@@ -76,4 +79,4 @@ External tests require separately installed tools. CI compiles iOS without signi
 
 ## Licensing
 
-Project licensing awaits owner confirmation. Third-party SDKs, code, weights and datasets retain their own terms; see [THIRD_PARTY.md](THIRD_PARTY.md). No Apple SDK or proprietary engine is redistributed.
+The project's original code and documentation are licensed under [Apache-2.0](LICENSE). See [NOTICE](NOTICE) for attribution. Third-party SDKs, code, weights and datasets retain their own terms; see [THIRD_PARTY.md](THIRD_PARTY.md). No Apple SDK, model weights or proprietary engine is redistributed.

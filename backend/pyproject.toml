@@ -2,6 +2,7 @@
 name = "real2simcapture-backend"
 version = "0.1.0"
 description = "Backend API and real reconstruction/export pipeline for iPhone Real2Sim capture."
+license = {text = "Apache-2.0"}
 requires-python = ">=3.11"
 dependencies = [
   "boto3>=1.35.0",
@@ -24,6 +25,10 @@ dependencies = [
 [build-system]
 requires = ["setuptools>=70", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project.urls]
+Repository = "https://github.com/eust-w/real2simcapture"
+Issues = "https://github.com/eust-w/real2simcapture/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

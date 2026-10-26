@@ -108,21 +108,24 @@ python -m app.worker --once
 
 ```bash
 cd /path/to/real2simcapture
+export REAL2SIM_POSTGRES_PASSWORD="$(openssl rand -hex 24)"
+export REAL2SIM_MINIO_ROOT_PASSWORD="$(openssl rand -hex 24)"
 docker compose -f infra/docker-compose.yml up -d postgres redis minio minio-create-bucket
 ```
+
+上面的密码生成只适用于新建本地数据卷。请将生成值保存在受保护的本地配置中，并在后续启动时复用；环境变量改变不会自动轮换已有数据卷内的密码。服务端口仅绑定 `127.0.0.1`，MinIO bucket 默认私有。保持 `REAL2SIM_S3_PUBLIC_BASE_URL` 未设置，通过后端 artifact API 或经过授权的 S3 客户端取文件。
 
 用这些真实服务启动后端：
 
 ```bash
-REAL2SIM_DATABASE_URL=postgresql://real2sim:real2sim_dev_password@127.0.0.1:55432/real2sim \
+REAL2SIM_DATABASE_URL="postgresql://real2sim:${REAL2SIM_POSTGRES_PASSWORD:?set password}@127.0.0.1:55432/real2sim" \
 REAL2SIM_QUEUE_BACKEND=redis \
 REAL2SIM_REDIS_URL=redis://127.0.0.1:56379/0 \
 REAL2SIM_STORAGE_BACKEND=s3 \
 REAL2SIM_S3_ENDPOINT_URL=http://127.0.0.1:59000 \
 REAL2SIM_S3_BUCKET=real2sim-artifacts \
 REAL2SIM_S3_ACCESS_KEY_ID=real2sim \
-REAL2SIM_S3_SECRET_ACCESS_KEY=real2sim_dev_password \
-REAL2SIM_S3_PUBLIC_BASE_URL=http://127.0.0.1:59000/real2sim-artifacts \
+REAL2SIM_S3_SECRET_ACCESS_KEY="${REAL2SIM_MINIO_ROOT_PASSWORD:?set password}" \
 REAL2SIM_DATA_DIR=data-infra \
 REAL2SIM_OUTPUT_DIR=outputs-infra \
 .venv/bin/uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
@@ -131,21 +134,20 @@ REAL2SIM_OUTPUT_DIR=outputs-infra \
 端到端验证真实数据库、队列、对象存储和 worker：
 
 ```bash
-REAL2SIM_DATABASE_URL=postgresql://real2sim:real2sim_dev_password@127.0.0.1:55432/real2sim \
+REAL2SIM_DATABASE_URL="postgresql://real2sim:${REAL2SIM_POSTGRES_PASSWORD:?set password}@127.0.0.1:55432/real2sim" \
 REAL2SIM_QUEUE_BACKEND=redis \
 REAL2SIM_REDIS_URL=redis://127.0.0.1:56379/0 \
 REAL2SIM_STORAGE_BACKEND=s3 \
 REAL2SIM_S3_ENDPOINT_URL=http://127.0.0.1:59000 \
 REAL2SIM_S3_BUCKET=real2sim-artifacts \
 REAL2SIM_S3_ACCESS_KEY_ID=real2sim \
-REAL2SIM_S3_SECRET_ACCESS_KEY=real2sim_dev_password \
-REAL2SIM_S3_PUBLIC_BASE_URL=http://127.0.0.1:59000/real2sim-artifacts \
+REAL2SIM_S3_SECRET_ACCESS_KEY="${REAL2SIM_MINIO_ROOT_PASSWORD:?set password}" \
 REAL2SIM_DATA_DIR=data-infra \
 REAL2SIM_OUTPUT_DIR=outputs-infra \
 PYTHONPATH=backend .venv/bin/python scripts/verify_real_infra.py
 ```
 
-该脚本会通过真实 API 创建任务、推入 Redis、调用 worker 消费、把 artifact 发布到 MinIO，再执行 package verification。
+该脚本会通过真实 API 创建任务、推入 Redis、调用 worker 消费、把 artifact 写入私有 MinIO，再执行 package verification。输入是程序构造的回归夹具，验证真实服务链路，不代表 iPhone 实拍或真机验收。
 
 ## 外部能力 readiness 审计
 

@@ -11,12 +11,14 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r backend/requirements-lock.txt
 .venv/bin/python -m pip install --no-deps -e backend
 npm --prefix frontend ci
-.venv/bin/python -m pytest backend/tests -q
+.venv/bin/python -m pytest backend/tests -q -m 'not external'
 npm --prefix frontend test
 npm --prefix frontend run build
 ```
 
 ## Pull Requests
+
+Contributions to the original project code are submitted under Apache-2.0, unless explicitly agreed otherwise. Only submit code and data you have the right to contribute; retain third-party notices and identify separately licensed material.
 
 - Describe the input, resulting behavior, and what you actually verified.
 - Add regression coverage for data integrity, coordinate transforms, geometry, and API behavior.
