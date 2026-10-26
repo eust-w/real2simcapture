@@ -1,0 +1,50 @@
+[project]
+name = "real2simcapture-backend"
+version = "0.1.0"
+description = "Backend API and real reconstruction/export pipeline for iPhone Real2Sim capture."
+license = {text = "Apache-2.0"}
+requires-python = ">=3.11"
+dependencies = [
+  "boto3>=1.35.0",
+  "coacd>=1.0.11",
+  "fastapi>=0.115.0",
+  "httpx>=0.27.0",
+  "mujoco>=3.3.0",
+  "numpy>=1.26.0",
+  "networkx>=3.3",
+  "pillow>=12.2.0",
+  "psycopg[binary]>=3.2.0",
+  "pydantic-settings>=2.6.0",
+  "python-multipart>=0.0.12",
+  "redis>=5.2.0",
+  "scipy>=1.14.0",
+  "trimesh>=4.5.0",
+  "uvicorn[standard]>=0.32.0",
+]
+
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Repository = "https://github.com/eust-w/real2simcapture"
+Issues = "https://github.com/eust-w/real2simcapture/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+]
+external = [
+  "groundingdino-py>=0.4.0",
+  "sam2>=1.1.0",
+  "segment-anything>=1.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = ["external: requires separately installed hardware or external reconstruction tools"]
