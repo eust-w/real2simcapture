@@ -13,6 +13,8 @@ An iPhone capture and simulation-asset pipeline for robotics developers.
 
 [Watch/download the 65-second introduction](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-landscape.mp4) · [Portrait video](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-portrait.mp4) · [Subtitles and production notes](docs/launch/PUBLISHING.zh-CN.md). Actual source excerpts and an empty workbench, not device footage or fabricated scan results. Synthesized Mandarin narration; Chinese and English subtitle files are included in the release.
 
+Watch on [YouTube](https://www.youtube.com/watch?v=tMlDCd1nMvA) (Chinese and English captions), [Bilibili](https://www.bilibili.com/video/BV1S9xT6zEYd/), or [Douyin](https://www.douyin.com/video/7701264760116923690). Public pages and playback verified on October 27, 2026. Xiaohongshu publication is blocked by an account restriction; its draft is not a public post.
+
 ## Capabilities
 
 - Native capture of RGB, LiDAR depth, camera poses, RoomPlan data and ARKit scene meshes.

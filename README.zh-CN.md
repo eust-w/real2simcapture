@@ -12,6 +12,8 @@
 
 代码位于公开仓库的 `main` 分支，[版本下载](https://github.com/eust-w/real2simcapture/releases)。更新后的约 65 秒介绍片已公开：[横版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-landscape.mp4) · [竖版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-portrait.mp4) · [字幕与素材说明](docs/launch/PUBLISHING.zh-CN.md)。实际源码与空工作台画面，合成中文旁白，非真机扫描实录；社交平台发布状态单独记录。
 
+在线观看：[B站](https://www.bilibili.com/video/BV1S9xT6zEYd/) · [YouTube](https://www.youtube.com/watch?v=tMlDCd1nMvA)（中英文字幕）· [抖音](https://www.douyin.com/video/7701264760116923690)。2026-10-27 已核实三平台公开页面与播放。小红书因账号限制未发布，稿件保留在草稿箱。
+
 ## Live 链路
 
 ARKit 在手机上生成场景网格，App 以约两秒间隔尝试上传最新快照，Web 轮询网格版本并显示实际三维几何。更新频率受网络、性能与跟踪状态影响，不是固定实时性保证。

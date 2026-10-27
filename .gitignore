@@ -1,5 +1,6 @@
 .DS_Store
 .playwright-mcp/
+.playwright-cli/
 *.pyc
 __pycache__/
 .pytest_cache/
