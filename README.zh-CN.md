@@ -10,7 +10,7 @@
 
 ![开发预览介绍片封面，非真机演示](docs/launch/assets/preview-cover.png)
 
-代码位于公开仓库的 `main` 分支，[版本下载](https://github.com/eust-w/real2simcapture/releases)。开源前制作的约 62 秒介绍片及素材说明见[视频交付说明](docs/launch/PUBLISHING.zh-CN.md)，其中关于“开源筹备”的历史台词不代表当前仓库状态。
+代码位于公开仓库的 `main` 分支，[版本下载](https://github.com/eust-w/real2simcapture/releases)。更新后的约 65 秒介绍片已公开：[横版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-landscape.mp4) · [竖版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-portrait.mp4) · [字幕与素材说明](docs/launch/PUBLISHING.zh-CN.md)。实际源码与空工作台画面，合成中文旁白，非真机扫描实录；社交平台发布状态单独记录。
 
 ## Live 链路
 

@@ -1,0 +1,30 @@
+{
+  "version": "2026-10-27-open-source",
+  "repository": "https://github.com/eust-w/real2simcapture",
+  "license": "Apache-2.0",
+  "physicalDeviceFootage": false,
+  "syntheticNarration": true,
+  "bilibili": {
+    "title": "iPhone 到机器人仿真：real2simcapture 开源了，哪些环节还没跑通？",
+    "description": "扫描外观只是开始，机器人仿真还需要尺度、碰撞几何和物理参数来源。real2simcapture 已按 Apache-2.0 开源：这期用实际源码与空工作台介绍原生采集、Live 网格传输、Web 检查和 MJCF / URDF / USD 导出。当前为开发预览，真机签名安装、连续扫描和目标引擎闭环待验收，不提供签名 App。本片不是扫描效果演示，中文旁白为合成语音。\n源码：https://github.com/eust-w/real2simcapture",
+    "tags": ["开源", "机器人", "iPhone", "ARKit", "三维重建", "开发记录"],
+    "format": "landscape"
+  },
+  "youtube": {
+    "title": "real2simcapture Is Open Source | iPhone-to-Simulation Developer Preview",
+    "description": "An open-source capture and simulation-asset pipeline for robotics developers. This source-based introduction covers native iPhone capture, periodic ARKit mesh uploads, a Web workbench, and MJCF / URDF / USD export.\n\nApache-2.0 source: https://github.com/eust-w/real2simcapture\n\nThis is a developer preview, not a physical-device scanning demo. Device signing, continuous scanning and target-engine acceptance remain pending. No signed installable iPhone app is distributed. Estimated physical parameters are not measurements. Actual code and an empty workbench are shown; no fabricated scan results. Includes synthesized Mandarin narration, with Chinese and English subtitle files.",
+    "tags": ["robotics", "ARKit", "iPhone", "open source", "3D reconstruction", "developer preview"],
+    "format": "landscape",
+    "videoLanguage": "zh-CN"
+  },
+  "douyin": {
+    "title": "iPhone到仿真，工具链开源了",
+    "description": "扫描出模型，还不等于机器人能用。real2simcapture 已开源：原生采集、Live 网格、Web 检查与资产导出。当前为开发预览，真机连续扫描和引擎闭环待验收，没有签名安装包。本片是实际代码与空工作台介绍，非扫描效果演示；合成配音。源码：GitHub 搜索 eust-w/real2simcapture。#开源 #机器人 #三维重建",
+    "format": "portrait"
+  },
+  "xiaohongshu": {
+    "title": "iPhone到仿真，工具链开源了",
+    "description": "把手机采集接到机器人仿真，中间不只是一个模型文件。real2simcapture 已按 Apache-2.0 开源，整理了原生采集、Live 网格传输、工作台检查和 MJCF / URDF / USD 导出代码。视频展示实际源码与空工作台，不拿测试网格冒充扫描成果。当前为开发预览：签名安装、连续扫描和目标引擎闭环待验收，没有签名 App。源码在 GitHub：eust-w/real2simcapture。本片使用合成配音。#开源项目 #机器人开发 #iPhone #三维重建",
+    "format": "portrait"
+  }
+}

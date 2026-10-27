@@ -11,7 +11,7 @@ An iPhone capture and simulation-asset pipeline for robotics developers.
 
 ![Developer-preview project introduction, not device footage](docs/launch/assets/preview-cover.png)
 
-[Introduction video package and production sources](docs/launch/PUBLISHING.zh-CN.md). The introduction uses source excerpts and an actual empty workbench, not fabricated scan results.
+[Watch/download the 65-second introduction](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-landscape.mp4) · [Portrait video](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-portrait.mp4) · [Subtitles and production notes](docs/launch/PUBLISHING.zh-CN.md). Actual source excerpts and an empty workbench, not device footage or fabricated scan results. Synthesized Mandarin narration; Chinese and English subtitle files are included in the release.
 
 ## Capabilities
 

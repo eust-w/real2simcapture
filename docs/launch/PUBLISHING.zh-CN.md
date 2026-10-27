@@ -1,91 +1,91 @@
-# 开发预览介绍片交付
+# 开源开发预览介绍片
 
-日期：2026-10-26。**视频已导出，尚未在任何视频平台上传或发布。** 源码按 Apache-2.0 开源，见 [GitHub](https://github.com/eust-w/real2simcapture) 与根目录 LICENSE。下面保留的是开源前制作的介绍片及文案，其“开源筹备”“许可证待确认”台词已过时，重新发布视频前需要更新，不应原样作为最新状态宣传。
+更新日期：2026-10-27。源码已按 [Apache-2.0](../../LICENSE) 公开，版本为 [v0.1.0-alpha.1](https://github.com/eust-w/real2simcapture/releases/tag/v0.1.0-alpha.1)。介绍片已更新开源状态和下载地址；不再使用旧版“开源筹备”“许可证待确认”的旁白。
 
-本片介绍代码和项目工作流，不是真机扫描演示。没有使用回归测试网格、生成场景或第三方扫描素材冒充采集结果。未来的真机演示分镜另见 [VIDEO.zh-CN.md](VIDEO.zh-CN.md)。
+**这是代码与工作流介绍，不是真机扫描演示。** 画面来自实际源码和真实运行的空工作台。没有用测试网格、生成场景或第三方扫描素材冒充采集结果。真机签名安装、连续扫描和目标引擎闭环仍待验收，没有可直接安装的签名 App。未来真机实录计划见 [VIDEO.zh-CN.md](VIDEO.zh-CN.md)。
 
-## 文件
+## 媒体文件
 
-本地输出位于仓库的 `.build/promo/`，不随 Git 分发：
+本轮输出保存在 `.build/promo-open-source-20261027/`，旧版 `.build/promo/` 保留但不再用于发布。
 
 | 文件 | 内容 |
 | --- | --- |
-| `real2simcapture-intro-landscape.mp4` | 1920x1080、30 fps、H.264/AAC，约 62.29 秒 |
-| `real2simcapture-intro-portrait.mp4` | 1080x1920、30 fps、H.264/AAC，约 62.29 秒 |
-| `intro.zh.srt` / `intro.en.srt` | 中文旁白字幕、英文翻译；独立字幕文件，未烧录到画面 |
-| `landscape-0.png` / `portrait-0.png` | 横竖封面 |
-| `manifest.json` | 生成时间、源码版本、素材来源、各镜头时长和媒体探测结果 |
+| `real2simcapture-intro-landscape.mp4` | 1920x1080、30 fps、H.264/AAC，约 64.82 秒；B站、YouTube |
+| `real2simcapture-intro-portrait.mp4` | 1080x1920、30 fps、H.264/AAC，约 64.82 秒；抖音、小红书 |
+| `intro.zh.srt` / `intro.en.srt` | 中文旁白与英文翻译，独立字幕，未烧录 |
+| `landscape-0.png` / `portrait-0.png` | 横竖版封面 |
+| `manifest.json` | 源码版本、生成脚本 SHA-256、旁白、镜头时长和媒体探测结果 |
 
-封面和字幕的可版本管理副本在 [assets](assets/)。没有制作虚假的“扫描结果”短循环。
+封面与字幕副本在 [assets](assets/)。配音是 macOS `say` / Tingting 合成中文旁白，不是用户的克隆声音；无背景音乐、无第三方录音。发布文案必须披露合成配音，平台有相关声明选项时同步设置。
 
-配音为 macOS `say` / Tingting 合成中文旁白，不是用户的克隆声音；无背景音乐、无第三方录音。发布时按平台要求披露合成配音。音轨峰值约 -2.7 dB、平均约 -18.6 dB；完成了音轨存在性、解码和非静音检查，没有声称进行人工逐句听审。
+公开下载：[横版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-landscape.mp4) · [竖版视频](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/real2simcapture-intro-portrait.mp4) · [中文字幕](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/intro.zh.srt) · [英文字幕](https://github.com/eust-w/real2simcapture/releases/download/v0.1.0-alpha.1/intro.en.srt)。两个视频已匿名下载，并与原文件核对 SHA-256。
+
+已完成两个视频的完整解码、音轨存在性与非静音检查、横竖画面溢出检查及片头/片尾抽查。音轨峰值约 -2.7 dB、平均约 -18.5 dB。未声称人工逐句听审。
 
 ## 素材来源
 
-1. 原生采集片段：`ios/Real2SimCapture/Sources/ARSceneCaptureScreen.swift`，渲染时直接读取文件，不另编演示代码。
-2. 导出片段：`backend/app/exporters.py` 的实际 MJCF、URDF、USD 写出语句。
-3. Web：本项目实际运行的未采集工作台截图，只展示界面，不伪造采集结果；发布画面裁切不包含本地依赖路径。
-4. 标题、流程排版和旁白为本项目新制内容。源码公开权属仍需确认。
-
-两个方向均完成页面尺寸溢出检查，并抽查源码帧、界面帧、结尾和编码后视频帧。视频不包含账号密码、验证码、签名证书、真实私人房间或云主机连接信息。
+1. `ios/Real2SimCapture/Sources/ARSceneCaptureScreen.swift`：渲染时读取实际源码，展示原生采集和周期网格上传。
+2. `backend/app/exporters.py`：实际 MJCF、URDF、USD 写出代码；并非目标引擎运行画面。
+3. `.build/browser/workbench-empty.png`：2026-10-26 实际工作台截图，未开始采集，不包含私人场景。
+4. 本项目原创排版和旁白。公开视频不含账号密码、验证码、签名证书或云主机连接信息。
 
 ## 重新生成
 
-需要 macOS 系统语音、FFmpeg、项目 Node 依赖及 Chromium/Chrome。先按[安装说明](../SETUP.md)运行浏览器检查，得到实际工作台截图，再从仓库根目录执行：
+需要 macOS 系统语音、FFmpeg、项目 Node 依赖和 Chrome/Chromium，以及实际空工作台截图。不要将浏览器测试生成的网格截图用作扫描成果。
 
 ```sh
-export CHROMIUM_PATH="$(node -p 'require("./frontend/node_modules/playwright").chromium.executablePath()')"
-node scripts/render_preview_video.mjs
+PREVIEW_OUTPUT_DIR=.build/promo-open-source-20261027 node scripts/render_preview_video.mjs
 ```
 
-脚本会生成音轨、画面、两个 MP4、中英文 SRT 和 manifest。修改台词后必须重新检查时长、布局、内容准确性及是否仍符合“非真机演示”标注。
+如不使用已安装的 Chrome，可设置 `CHROMIUM_PATH`。每次修改旁白后都应重新检查时长、布局、内容准确性和“非真机演示”标注。
 
-## 各平台文案
+## 平台文案
 
-以下专门对应当前开发预览片，不可替换为“已完成真实扫描”或“已经开源”的说法。
+机器可读副本见 [platform-copy.json](platform-copy.json)。所有平台使用同一事实边界，不承诺扫描精度、延迟或生产可用性。
 
 ### B站
 
-标题：iPhone 到机器人仿真，工具链怎么搭？real2simcapture 开发预览
+标题：iPhone 到机器人仿真：real2simcapture 开源了，哪些环节还没跑通？
 
-简介：扫描外观只是开始，机器人仿真还需要尺度、碰撞几何和物理参数来源。这期用实际源码和运行中的工作台介绍 real2simcapture：原生采集、Live 网格传输、Web 检查与资产导出。当前仍是开发预览，真机签名安装、连续采集及引擎闭环待验收。项目开源筹备中，公开授权和许可证确认后再发布。这不是扫描效果演示；中文旁白由语音合成生成。
+简介：扫描外观只是开始，机器人仿真还需要尺度、碰撞几何和物理参数来源。real2simcapture 已按 Apache-2.0 开源：这期用实际源码与空工作台介绍原生采集、Live 网格传输、Web 检查和 MJCF / URDF / USD 导出。当前为开发预览，真机签名安装、连续扫描和目标引擎闭环待验收，不提供签名 App。本片不是扫描效果演示，中文旁白为合成语音。源码：https://github.com/eust-w/real2simcapture
 
-标签：机器人、计算机视觉、iPhone、ARKit、三维重建、开发记录
+标签：开源、机器人、iPhone、ARKit、三维重建、开发记录
 
 ### YouTube
 
-Title: Building an iPhone-to-Simulation Pipeline | real2simcapture Developer Preview
+Title: real2simcapture Is Open Source | iPhone-to-Simulation Developer Preview
 
-Description: A source-based introduction to real2simcapture: native capture, periodic ARKit mesh uploads, a Web workbench, and simulation asset export. This is not a physical-device scanning demo. Device signing, continuous capture and engine acceptance remain pending. Public source release awaits ownership and license confirmation. Includes synthesized Mandarin narration and an English subtitle file. Estimated physical parameters are not measurements.
+Description: An open-source capture and simulation-asset pipeline for robotics developers. This source-based introduction covers native iPhone capture, periodic ARKit mesh uploads, a Web workbench, and MJCF / URDF / USD export. Apache-2.0 source: https://github.com/eust-w/real2simcapture
 
-Tags: robotics, ARKit, iPhone, 3D reconstruction, simulation assets, developer preview
+This is a developer preview, not a physical-device scanning demo. Device signing, continuous scanning and target-engine acceptance remain pending. No signed installable iPhone app is distributed. Estimated physical parameters are not measurements. Actual code and an empty workbench are shown; no fabricated scan results. Includes synthesized Mandarin narration, with Chinese and English subtitle files.
 
-使用横版，并上传 `intro.en.srt` 与 `intro.zh.srt`。不要填尚不可公开访问的仓库地址作为可用下载链接。
+Tags: robotics, ARKit, iPhone, open source, 3D reconstruction, developer preview
+
+使用横版，语言设为中文，并上传中英文字幕。不将“合成配音”描述为用户本人录音。
 
 ### 抖音
 
-封面：iPhone 采集，怎样接到机器人仿真？
+标题：iPhone到仿真，工具链开源了
 
-文案：模型外观之外，还要处理尺度、碰撞和参数来源。real2simcapture 开发记录：原生采集、Live 网格与导出代码。真机闭环待验收，开源筹备中。本条为代码介绍，非扫描效果演示；使用合成配音。#机器人 #三维重建 #开发日常
+文案：扫描出模型，还不等于机器人能用。real2simcapture 已开源：原生采集、Live 网格、Web 检查与资产导出。当前为开发预览，真机连续扫描和引擎闭环待验收，没有签名安装包。本片是实际代码与空工作台介绍，非扫描效果演示；合成配音。源码：GitHub 搜索 eust-w/real2simcapture。#开源 #机器人 #三维重建
 
 ### 小红书
 
-标题：做机器人仿真资产，扫描之后还缺什么？
+标题：iPhone到仿真，工具链开源了
 
-正文：最近在整理 real2simcapture。目标是连接 iPhone 原生采集、工作台检查和仿真资产导出。视频里展示的是实际代码与空工作台，没有用测试几何冒充真实扫描。当前已补上 Live 网格传输；签名安装、长时间采集、真实引擎闭环还需要设备验收。准备开源，但公开授权和许可证尚未确认。使用合成配音。#机器人开发 #iPhone #三维重建 #项目记录
-
-### GitHub README
-
-首屏封面已加入中英文 README。公开后才追加真正可访问的视频或 release 链接，当前不编造发布地址。
+正文：把手机采集接到机器人仿真，中间不只是一个模型文件。real2simcapture 已按 Apache-2.0 开源，整理了原生采集、Live 网格传输、工作台检查和 MJCF / URDF / USD 导出代码。视频展示实际源码与空工作台，不拿测试网格冒充扫描成果。当前为开发预览：签名安装、连续扫描和目标引擎闭环待验收，没有签名 App。源码在 GitHub：eust-w/real2simcapture。本片使用合成配音。#开源项目 #机器人开发 #iPhone #三维重建
 
 ## 发布台账
 
-| 平台 | 目标账号 | 状态 | 公开链接 |
-| --- | --- | --- | --- |
-| GitHub | 已有私有仓库 eust-w/real2simcapture | 私有预览分支及草稿 PR；未公开 | 无公开 release |
-| B站 | 未确认 | 文件与文案已备；未上传 | 无 |
-| YouTube | 未确认 | 文件与中英文字幕已备；未上传 | 无 |
-| 抖音 | 未确认 | 竖版与文案已备；未上传 | 无 |
-| 小红书 | 未确认 | 竖版与文案已备；未上传 | 无 |
+| 平台 | 当前状态 | 链接 |
+| --- | --- | --- |
+| GitHub 源码 | 已公开，Apache-2.0 | [仓库](https://github.com/eust-w/real2simcapture) |
+| GitHub 视频 | 两个 MP4、双语字幕、两张封面已公开；MP4 匿名下载校验通过 | [Release](https://github.com/eust-w/real2simcapture/releases/tag/v0.1.0-alpha.1) |
+| B站 | 待连接已登录浏览器；未上传 | 无 |
+| YouTube | 待连接已登录浏览器；未上传 | 无 |
+| 抖音 | 待连接已登录浏览器；未上传 | 无 |
+| 小红书 | 待连接已登录浏览器；未上传 | 无 |
 
-发布前需要：权利人确认源码及画面可公开、选择许可证、确认每个平台目标账号并完成登录。任何平台的“上传中”“待审核”“草稿”都不能记录为公开发布成功。本轮没有创建自动发布任务。
+上传完成、审核中、草稿均不等于公开发布。每个平台分别核对账号、内容与公开链接，保留本地证据；不创建自动发布任务。
+
+本轮浏览器自动化连接未完成，未读取四个平台的当前账号状态，也没有提交投稿。过去其他项目的登录、审核或账号限制不作为本次平台状态的证据。

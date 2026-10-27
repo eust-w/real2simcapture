@@ -3,10 +3,11 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import { createHash } from 'node:crypto';
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || path.resolve('frontend/node_modules/playwright'));
 const root = process.cwd();
-const out = path.join(root, '.build/promo');
+const out = path.resolve(process.env.PREVIEW_OUTPUT_DIR || path.join(root, '.build/promo'));
 await fs.mkdir(out, { recursive: true });
 const escape = text => text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const swift = await fs.readFile('ios/Real2SimCapture/Sources/ARSceneCaptureScreen.swift', 'utf8');
@@ -22,10 +23,10 @@ function excerpt(source, marker, count) {
 const screenshot = await fs.readFile('.build/browser/workbench-empty.png');
 const scenes = [
   {
-    label: 'PROJECT INTRODUCTION', title: 'real2simcapture', accent: '从 iPhone 采集，到机器人仿真资产',
-    body: '<div class="pipeline"><span>CAPTURE</span><b>→</b><span>INSPECT</span><b>→</b><span>EXPORT</span></div><p class="note">面向机器人开发者的采集与资产处理工具链</p>',
-    zh: '这是 real2simcapture，一个面向机器人开发者的采集与资产处理项目。这支短片介绍代码和工作流，不是真机扫描演示。',
-    en: 'Introducing real2simcapture, a capture and asset pipeline for robotics developers. This is a project overview, not a physical-device scanning demonstration.',
+    label: 'OPEN SOURCE / APACHE-2.0', title: 'real2simcapture', accent: '从 iPhone 采集，到机器人仿真资产',
+    body: '<div class="pipeline"><span>CAPTURE</span><b>→</b><span>INSPECT</span><b>→</b><span>EXPORT</span></div><p class="note">已开源 · 面向机器人开发者的工具链</p>',
+    zh: 'real2simcapture 已经开源。这是面向机器人开发者的采集与资产处理工具链。本片介绍实际代码和工作流，不是真机扫描演示。',
+    en: 'real2simcapture is now open source: a capture and asset pipeline for robotics developers. This video shows actual code and workflow, not a physical-device scanning demonstration.',
   },
   {
     label: '01 / NATIVE CAPTURE', title: '保留原始数据', accent: 'RGB · 深度 · 位姿 · 相机内参',
@@ -52,10 +53,10 @@ const scenes = [
     en: 'Export code supports MJCF, URDF and USD, with separate visual and collision geometry. Estimated mass and friction are not measurements. Outputs require target-engine acceptance.',
   },
   {
-    label: 'DEVELOPER PREVIEW', title: '下一步：真机闭环', accent: '连接 iPhone，记录一次完整采集',
-    body: '<div class="checklist"><p><b>已有</b> 原生采集、Live 网格与导出代码</p><p><b>待验收</b> 签名安装、连续扫描与引擎导入</p><p><b>待确认</b> 公开授权、许可证与发布账号</p></div><p class="note">real2simcapture / 开源筹备中</p>',
-    zh: '当前是开发预览。真机签名安装、连续采集和引擎导入仍待验收。项目正在准备开源，公开授权和许可证确认后再正式发布。',
-    en: 'This is a developer preview. Device signing, continuous capture and engine import await acceptance. Public release follows ownership and license confirmation.',
+    label: 'OPEN-SOURCE DEVELOPER PREVIEW', title: '源码已公开', accent: 'Apache-2.0 · v0.1.0-alpha.1',
+    body: '<div class="checklist"><p><b>已有</b> 原生采集、Live 网格与导出代码</p><p><b>待验收</b> 签名安装、连续扫描与引擎导入</p><p><b>参与</b> 阅读源码、报告问题、贡献改进</p></div><p class="note">github.com/eust-w/real2simcapture</p>',
+    zh: '源码已按 Apache 二点零许可证公开，欢迎查看和贡献。当前仍是开发预览：真机签名安装、连续扫描和引擎导入待验收，还没有可直接安装的签名应用。',
+    en: 'Source is available under Apache-2.0. Explore the code and contribute. This remains a developer preview: device signing, continuous capture and engine import await acceptance. No signed installable app is distributed.',
   },
 ];
 const browser = await chromium.launch({ ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : { channel: 'chrome' }), headless: true });
@@ -118,7 +119,9 @@ for (const lang of ['zh', 'en']) {
 }
 const manifest = {
   createdAt: new Date().toISOString(), commit: run('git', ['rev-parse', 'HEAD']).toString().trim(),
-  classification: 'developer-preview-project-introduction', physicalDeviceFootage: false,
+  classification: 'open-source-developer-preview-project-introduction', physicalDeviceFootage: false,
+  repository: 'https://github.com/eust-w/real2simcapture', license: 'Apache-2.0', release: 'v0.1.0-alpha.1',
+  scriptSha256: createHash('sha256').update(await fs.readFile(new URL(import.meta.url))).digest('hex'),
   voice: { provider: 'macOS say', voice, synthetic: true }, music: false,
   sources: ['ios/Real2SimCapture/Sources/ARSceneCaptureScreen.swift', 'backend/app/exporters.py', '.build/browser/workbench-empty.png'],
   videos: ['landscape', 'portrait'].map(format => ({ file: `real2simcapture-intro-${format}.mp4`, probe: probe(path.join(out, `real2simcapture-intro-${format}.mp4`)) })),
