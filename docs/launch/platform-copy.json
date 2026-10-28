@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-27-open-source",
+  "version": "2026-10-29-open-source",
   "repository": "https://github.com/eust-w/real2simcapture",
   "license": "Apache-2.0",
   "physicalDeviceFootage": false,
@@ -21,6 +21,14 @@
     "title": "iPhone到仿真，工具链开源了",
     "description": "扫描出模型，还不等于机器人能用。real2simcapture 已开源：原生采集、Live 网格、Web 检查与资产导出。当前为开发预览，真机连续扫描和引擎闭环待验收，没有签名安装包。本片是实际代码与空工作台介绍，非扫描效果演示；合成配音。源码：GitHub 搜索 eust-w/real2simcapture。#开源 #机器人 #三维重建",
     "format": "portrait"
+  },
+  "x": {
+    "text": "real2simcapture is open source (Apache-2.0): iPhone capture + simulation-asset tooling.\n\nDeveloper preview, not a device-scan demo. Device/engine validation pending; no signed app. Synthetic Mandarin narration.\n\nhttps://github.com/eust-w/real2simcapture",
+    "format": "landscape",
+    "postLanguage": "en",
+    "captionLanguage": "zh",
+    "captionFile": "assets/intro.zh.srt",
+    "aiDisclosure": true
   },
   "xiaohongshu": {
     "title": "iPhone到仿真，工具链开源了",

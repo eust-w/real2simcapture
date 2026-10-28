@@ -15,6 +15,8 @@ An iPhone capture and simulation-asset pipeline for robotics developers.
 
 Watch on [YouTube](https://www.youtube.com/watch?v=tMlDCd1nMvA) (Chinese and English captions), [Bilibili](https://www.bilibili.com/video/BV1S9xT6zEYd/), or [Douyin](https://www.douyin.com/video/7701264760116923690). Public pages and playback verified on October 27, 2026. Xiaohongshu publication is blocked by an account restriction; its draft is not a public post.
 
+Also on [X](https://x.com/eustancewu/status/2115537584411873510): native video, English post, Chinese captions and AI-content disclosure. Post and playback verified on October 29, 2026.
+
 ## Capabilities
 
 - Native capture of RGB, LiDAR depth, camera poses, RoomPlan data and ARKit scene meshes.

@@ -1,6 +1,6 @@
 # 开源开发预览介绍片
 
-更新日期：2026-10-27。源码已按 [Apache-2.0](../../LICENSE) 公开，版本为 [v0.1.0-alpha.1](https://github.com/eust-w/real2simcapture/releases/tag/v0.1.0-alpha.1)。介绍片已更新开源状态和下载地址；不再使用旧版“开源筹备”“许可证待确认”的旁白。
+更新日期：2026-10-29。源码已按 [Apache-2.0](../../LICENSE) 公开，版本为 [v0.1.0-alpha.1](https://github.com/eust-w/real2simcapture/releases/tag/v0.1.0-alpha.1)。介绍片已更新开源状态和下载地址；不再使用旧版“开源筹备”“许可证待确认”的旁白。
 
 **这是代码与工作流介绍，不是真机扫描演示。** 画面来自实际源码和真实运行的空工作台。没有用测试网格、生成场景或第三方扫描素材冒充采集结果。真机签名安装、连续扫描和目标引擎闭环仍待验收，没有可直接安装的签名 App。未来真机实录计划见 [VIDEO.zh-CN.md](VIDEO.zh-CN.md)。
 
@@ -10,7 +10,7 @@
 
 | 文件 | 内容 |
 | --- | --- |
-| `real2simcapture-intro-landscape.mp4` | 1920x1080、30 fps、H.264/AAC，约 64.82 秒；B站、YouTube |
+| `real2simcapture-intro-landscape.mp4` | 1920x1080、30 fps、H.264/AAC，约 64.82 秒；B站、YouTube、X |
 | `real2simcapture-intro-portrait.mp4` | 1080x1920、30 fps、H.264/AAC，约 64.82 秒；抖音、小红书 |
 | `intro.zh.srt` / `intro.en.srt` | 中文旁白与英文翻译，独立字幕，未烧录 |
 | `landscape-0.png` / `portrait-0.png` | 横竖版封面 |
@@ -75,7 +75,19 @@ Tags: robotics, ARKit, iPhone, open source, 3D reconstruction, developer preview
 
 正文：把手机采集接到机器人仿真，中间不只是一个模型文件。real2simcapture 已按 Apache-2.0 开源，整理了原生采集、Live 网格传输、工作台检查和 MJCF / URDF / USD 导出代码。视频展示实际源码与空工作台，不拿测试网格冒充扫描成果。当前为开发预览：签名安装、连续扫描和目标引擎闭环待验收，没有签名 App。源码在 GitHub：eust-w/real2simcapture。本片使用合成配音。#开源项目 #机器人开发 #iPhone #三维重建
 
+### X
+
+real2simcapture is open source (Apache-2.0): iPhone capture + simulation-asset tooling.
+
+Developer preview, not a device-scan demo. Device/engine validation pending; no signed app. Synthetic Mandarin narration.
+
+https://github.com/eust-w/real2simcapture
+
+使用横版原生视频、英文帖子文案、与中文旁白对应的 `intro.zh.srt` 字幕，开启“由 AI 生成”内容披露。X 当前上传入口默认标记字幕为 Simplified Chinese，未将英文字幕误标为中文；双语字幕版本仍可在 YouTube 查看。
+
 ## 发布台账
+
+B站、YouTube、抖音和小红书为 2026-10-27 核验记录；X 为 2026-10-29 新增核验，本次未重新检查其他平台。
 
 | 平台 | 当前状态 | 链接 |
 | --- | --- | --- |
@@ -85,6 +97,7 @@ Tags: robotics, ARKit, iPhone, open source, 3D reconstruction, developer preview
 | YouTube | 已公开，实际播放已核实，中英文字幕均已发布 | [tMlDCd1nMvA](https://www.youtube.com/watch?v=tMlDCd1nMvA) |
 | 抖音 | 创作者中心显示“已发布”，公开页面与实际播放已核实 | [7701264760116923690](https://www.douyin.com/video/7701264760116923690) |
 | 小红书 | 提交被账号限制拒绝；已保留草稿，未公开 | 无 |
+| X | 已公开，原生视频实际播放与中文字幕内容已核实，含 AI 内容声明 | [2115537584411873510](https://x.com/eustancewu/status/2115537584411873510) |
 
 上传完成、审核中、草稿均不等于公开发布。每个平台分别核对账号、内容与公开链接，保留本地证据；不创建自动发布任务。
 
@@ -94,3 +107,5 @@ Tags: robotics, ARKit, iPhone, open source, 3D reconstruction, developer preview
 - YouTube 自定义封面要求手机号验证，未绕过限制，改用视频内项目名画面。中文字幕与英文字幕在 Studio 中均显示“已发布”；外部链接可点击权限仍需账号自行完成平台验证。
 - 抖音自动章节误识别了术语并将部分内容称为“扫描演示”。已替换为准确的五个章节和总结，公开页面已核实生效。
 - 小红书提交明确返回“因违反社区规范禁止发笔记”。停止重试，并核实本条介绍片出现在草稿箱；草稿存于当前浏览器本地，清除浏览器数据会丢失。需要账号持有人通过平台处理限制，解除后再发布，当前没有公开链接。
+
+2026-10-29：检查 X 当前账号与项目搜索结果后，仅提交一次。平台返回“已发布”；规范帖子链接加载了英文正文、源码链接、AI 声明和约 65 秒视频，实际播放且中文字幕六条已加载。核验使用当前已登录浏览器，不代表匿名访问或所有地区均可播放。截图保存在本地 `.build/publishing-20261029/browser/`，不提交浏览器后台信息。

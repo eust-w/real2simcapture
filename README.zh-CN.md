@@ -14,6 +14,8 @@
 
 在线观看：[B站](https://www.bilibili.com/video/BV1S9xT6zEYd/) · [YouTube](https://www.youtube.com/watch?v=tMlDCd1nMvA)（中英文字幕）· [抖音](https://www.douyin.com/video/7701264760116923690)。2026-10-27 已核实三平台公开页面与播放。小红书因账号限制未发布，稿件保留在草稿箱。
 
+2026-10-29 补发至 [X](https://x.com/eustancewu/status/2115537584411873510)：原生视频、英文文案、中文字幕与 AI 内容声明，已核实公开帖子及实际播放。
+
 ## Live 链路
 
 ARKit 在手机上生成场景网格，App 以约两秒间隔尝试上传最新快照，Web 轮询网格版本并显示实际三维几何。更新频率受网络、性能与跟踪状态影响，不是固定实时性保证。
